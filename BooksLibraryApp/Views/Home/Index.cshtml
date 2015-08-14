@@ -1,0 +1,108 @@
+﻿<!--
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+        is an ideal platform for building RESTful applications on the .NET Framework.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+    </div>
+</div>
+-->
+
+@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<div class="page-header">
+    <h1>Book Library</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        
+            <table class="table-bordered">
+                <caption><strong> All Books unordered  </strong></caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author Name</th>
+                        <th>Category Name</th>
+                    </tr> 
+                 </thead>
+                    <tbody data-bind="foreach: books">
+                        <tr >
+                            <td data-bind="text: Title"></td>
+                            <td data-bind="text: AuthorName"></td>
+                            <td data-bind="text: CategoryName"></td>
+                        </tr>
+
+                    </tbody>
+            </table>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+
+    <div class="col-md-4">
+        
+        <table class="table-bordered">
+            <caption><strong> Books ordered by Author </strong></caption>
+            <thead>
+                <tr>
+                    <th>Author Name</th>
+                    <th>Tittle</th>
+                    <th>Category Name</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: booksbyAuthor">
+                <tr>
+                    <td data-bind="text: AuthorName"></td>
+                    <td data-bind="text: Title"></td>
+                    <td data-bind="text: CategoryName"></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+
+    <div class="col-md-4">
+
+        <table class="table-bordered">
+            <caption><strong> Books ordered by Category </strong></caption>
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Tittle</th>
+                    <th>Author Name</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: booksbyCategory">
+                <tr>
+                    <td data-bind="text: CategoryName"></td>
+                    <td data-bind="text: Title"></td>
+                    <td data-bind="text: AuthorName"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+</div>
